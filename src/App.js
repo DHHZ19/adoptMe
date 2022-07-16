@@ -1,10 +1,6 @@
-const Pet = (props) => {
-  return React.createElement("div", {}, [
-    React.createElement("h2", {}, props.name),
-    React.createElement("h2", {}, props.animal),
-    React.createElement("h2", {}, props.breed),
-  ]);
-};
+import React from "react";
+import { render } from "react-dom";
+import Pet from "./Pet";
 const App = () => {
   return React.createElement("div", {}, [
     React.createElement("h1", { id: "my-brand" }, "adopt me!"),
@@ -21,4 +17,4 @@ const App = () => {
     }),
   ]);
 };
-ReactDOM.render(React.createElement(App), document.querySelector(".root"));
+render(React.createElement(App), document.querySelector(".root"));
