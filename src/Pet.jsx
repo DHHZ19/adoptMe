@@ -1,21 +1,23 @@
-const Pet = (props) => {
+const Pet = ({ name, animal, breed, images, location, id }) => {
+  let hero = "http://pets-images.dev-apis.com/pets/none.jpg";
+  if (images.length) {
+    hero = images[0];
+  }
   return (
     <div>
-      <h1>{props.name}</h1>
-      <h2>{props.animal}</h2>
-      <h2>{props.breeed}</h2>
+      <a href={`/details/${id}`} className="pet">
+        <div className="image-container">
+          <img src={hero} alt={name} />
+        </div>
+        <div className="info">
+          <h1>{name}</h1>
+          <h2>
+            {animal} - {breed} - {location}
+          </h2>
+        </div>
+      </a>
     </div>
   );
 };
-
-// ^ this and the one in the bottom are the same
-
-// const Pet = (props) => {
-//   return React.createElement("div", {}, [
-//     React.createElement("h2", {}, props.name),
-//     React.createElement("h2", {}, props.animal),
-//     React.createElement("h2", {}, props.breed),
-//   ]);
-// };
 
 export default Pet;
