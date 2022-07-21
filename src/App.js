@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { StrictMode } from "react";
 import { render } from "react-dom";
 import SearchParams from "./SearchParams.jsx";
@@ -9,7 +9,9 @@ const App = () => {
   return (
     <StrictMode>
       <BrowserRouter>
-        <h1> adopt Me! </h1>
+        <header>
+          <Link to="/"></Link>
+        </header>
         <Routes>
           <Route path="/details/:id" element={<Details />}></Route>
           <Route path="/" element={<SearchParams />}></Route>
