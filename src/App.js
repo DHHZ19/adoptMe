@@ -5,7 +5,6 @@ import { render } from "react-dom";
 import SearchParams from "./SearchParams.jsx";
 import Details from "./Details.jsx";
 import ThemeContext from "./ThemeContext.jsx";
-
 const App = () => {
   const theme = useState("pink");
   return (
