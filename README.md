@@ -7,7 +7,7 @@ This app helps you to find a doggo to adopt around the United States
 
 ## How It's Made:
 
-**Tech used:** React, CSS, HTML, JavaScript
+**Tech used:** React, CSS, HTML, JavaScript, PetFinder API
  
 
 
