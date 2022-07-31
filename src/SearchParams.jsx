@@ -100,7 +100,6 @@ const SearchParams = () => {
         <button sytle={{ backgroundColor: theme }}>Submit</button>
       </form>
       <Results pets={pets} />
-      <button>Hello,world</button>
     </div>
   );
 };
