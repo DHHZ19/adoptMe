@@ -1,6 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Results from "./Results.jsx";
+import ThemeContext from "./ThemeContext.jsx";
 import useBreedList from "./useBreedList.jsx";
+
 const SearchParams = () => {
   const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
   const [location, setLocation] = useState("");
@@ -8,7 +10,7 @@ const SearchParams = () => {
   const [breed, setBreed] = useState("");
   const [breeds] = useBreedList(animal);
   const [pets, setPets] = useState([]);
-
+  const [theme, setTheme] = useContext(ThemeContext);
   useEffect(() => {
     requestPets();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -82,7 +84,20 @@ const SearchParams = () => {
             ))}
           </select>
         </label>
-        <button>Submit</button>
+        <label htmlFor="theme">
+          Theme
+          <select
+            value={theme}
+            onChange={(e) => setTheme(e.target.value)}
+            onBlur={(e) => setTheme(e.target.value)}
+          >
+            <option value="peru">peru</option>
+            <option value="darkblue">darkblue</option>
+            <option value="red">red</option>
+            <option value="orange">orange</option>
+          </select>
+        </label>
+        <button sytle={{ backgroundColor: theme }}>Submit</button>
       </form>
       <Results pets={pets} />
     </div>
