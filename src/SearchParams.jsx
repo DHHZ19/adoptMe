@@ -2,7 +2,6 @@ import { useState, useEffect, useContext } from "react";
 import Results from "./Results.jsx";
 import ThemeContext from "./ThemeContext.jsx";
 import useBreedList from "./useBreedList.jsx";
-
 const SearchParams = () => {
   const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
   const [location, setLocation] = useState("");
@@ -11,13 +10,22 @@ const SearchParams = () => {
   const [breeds] = useBreedList(animal);
   const [pets, setPets] = useState([]);
   const [theme, setTheme] = useContext(ThemeContext);
+  const [pageCount, setPageCount] = useState(0);
+
+  function nextPage() {
+    setPageCount(pageCount + 1);
+  }
+  function backPage() {
+    if (pageCount > 0) {
+      setPageCount(pageCount - 1);
+    }
+  }
   useEffect(() => {
     requestPets();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
+  }, [pageCount]); // eslint-disable-line react-hooks/exhaustive-deps
   async function requestPets() {
     const res = await fetch(
-      `http://pets-v2.dev-apis.com/pets?animal=${animal}&${location}&breed=${breed}`
+      `http://pets-v2.dev-apis.com/pets?animal=dog&page=${pageCount}`
     );
     const json = await res.json();
 
@@ -100,6 +108,8 @@ const SearchParams = () => {
         <button sytle={{ backgroundColor: theme }}>Submit</button>
       </form>
       <Results pets={pets} />
+      <button onClick={nextPage}>Next Page</button>
+      <button onClick={backPage}>Pervious Page</button>
     </div>
   );
 };
