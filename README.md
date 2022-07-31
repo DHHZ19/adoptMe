@@ -1,7 +1,7 @@
 # Adopt Me!
 I made this app for a user to have the ablity to password protect there images if they so choose.
 
-**Link to project:** http://recruiters-love-seeing-live-demos.com/
+**Link to project:** coming soon
 
 ![alt tag](http://placecorgi.com/1200/650)
 
